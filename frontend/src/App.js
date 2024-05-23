@@ -6,6 +6,9 @@ import ListItems from "./components/pagination/listItems/ListItems";
 import genraItems from "./utils/genra/genraItem";
 import Items from "./components/itemsList/Items";
 import lodash from "lodash";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [sortColum, setSortColum] = useState({});
   const [currentPageChange, setCurrentPageChange] = useState(0);
@@ -28,9 +31,11 @@ function App() {
   };
   const handleSort = (path) => {
     setSortColum({ path, order: "asc" });
+    toast("this is testing toast!");
   };
   return (
     <div className="App">
+      <ToastContainer />
       <ListItems
         items={genraItems}
         onSelectedItem={handleSelectedItem}
